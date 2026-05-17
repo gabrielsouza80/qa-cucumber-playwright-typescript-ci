@@ -75,6 +75,11 @@ When('I reset the app state', async function (this: CustomWorld) {
   await getInventoryPage(this).resetAppState();
 });
 
+When('I reload the page', async function (this: CustomWorld) {
+  if (!this.page) throw new Error('Page was not initialized.');
+  await this.page.reload();
+});
+
 // ─── Then ─────────────────────────────────────────────────────────────────────
 
 Then(

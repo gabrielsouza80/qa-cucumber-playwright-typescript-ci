@@ -64,6 +64,18 @@ Feature: Inventory / Products page
     Then the cart badge should not be visible
     And the "sauce-labs-backpack" button should show "Add to cart"
 
+  Scenario: Cart state is kept after reloading the inventory page
+    When I add "sauce-labs-backpack" to the cart
+    And I reload the page
+    Then the cart badge should show "1"
+    And the "sauce-labs-backpack" button should show "Remove"
+
+  Scenario: Cart state is kept after sorting products
+    When I add "sauce-labs-backpack" to the cart
+    And I sort products by "Name (Z to A)"
+    Then the cart badge should show "1"
+    And the "sauce-labs-backpack" button should show "Remove"
+
   Scenario: Cart badge is not visible when cart is empty
     Then the cart badge should not be visible
 

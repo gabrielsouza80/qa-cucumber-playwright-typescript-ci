@@ -101,3 +101,5 @@ Feature: Checkout
     And I finish the order
     And I click back home
     Then I should see the products page title "Products"
+    And the cart badge should not be visible
+    And the "sauce-labs-backpack" button should show "Add to cart"

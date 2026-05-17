@@ -31,6 +31,13 @@ Feature: Product detail page
     Then the cart badge should not be visible
     And the add to cart button should be visible
 
+  Scenario: Product detail page reflects item already added from inventory
+    When I click back to products
+    And I add "sauce-labs-backpack" to the cart
+    And I click on product name with id 4
+    Then the cart badge should show "1"
+    And the remove button should be visible
+
   # ─── Navigation ───────────────────────────────────────────────────────────
 
   Scenario: Back to products button returns to inventory page
