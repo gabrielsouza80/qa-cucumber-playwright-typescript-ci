@@ -6,7 +6,11 @@ module.exports = {
       'src/steps/**/*.ts'
     ],
     paths: ['features/**/*.feature'],
-    format: ['progress'],
+    format: [
+      'progress',
+      'json:reports/cucumber-report.json',
+      'junit:reports/cucumber-report.xml'
+    ],
     publishQuiet: true
   },
   report: {
@@ -18,7 +22,9 @@ module.exports = {
     paths: ['features/**/*.feature'],
     format: [
       'progress',
-      'html:reports/cucumber-report.html'
+      'html:reports/cucumber-report.html',
+      'json:reports/cucumber-report.json',
+      'junit:reports/cucumber-report.xml'
     ],
     publishQuiet: true
   }

@@ -32,6 +32,18 @@ pipeline {
       }
     }
 
+    stage('Type-check TypeScript') {
+      steps {
+        script {
+          if (isUnix()) {
+            sh 'npm run typecheck'
+          } else {
+            bat 'npm run typecheck'
+          }
+        }
+      }
+    }
+
     stage('Run Tests') {
       steps {
         script {
@@ -47,6 +59,7 @@ pipeline {
 
   post {
     always {
+      junit allowEmptyResults: true, testResults: 'reports/cucumber-report.xml'
       archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true
     }
   }

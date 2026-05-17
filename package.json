@@ -4,8 +4,10 @@
   "description": "BDD test automation project using Cucumber, Playwright, TypeScript, GitHub Actions and Jenkinsfile.",
   "main": "index.js",
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "test": "cucumber-js",
-    "test:report": "cucumber-js --profile report"
+    "test:report": "cucumber-js --profile report",
+    "test:ci": "npm run typecheck && npm run test:report"
   },
   "keywords": [],
   "author": "Gabriel Souza",
