@@ -6,6 +6,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "cucumber-js",
+    "check:coverage": "node ./scripts/check-page-coverage.js",
     "test:report": "cucumber-js --profile report",
     "test:ci": "npm run typecheck && npm run test:report"
   },
