@@ -13,6 +13,7 @@ Given(
   'I have {string} in my cart',
   async function (this: CustomWorld, itemSlug: string) {
     if (!this.inventoryPage) throw new Error('InventoryPage was not initialized.');
+    await this.inventoryPage.goto();
     await this.inventoryPage.addItemToCart(itemSlug);
   }
 );
@@ -137,9 +138,9 @@ Then(
 );
 
 Then(
-  'the order summary should contain {int} item',
-  async function (this: CustomWorld, count: number) {
-    await getCheckoutPage(this).expectSummaryItemCount(count);
+  /^the order summary should contain (\d+) items?$/,
+  async function (this: CustomWorld, count: string) {
+    await getCheckoutPage(this).expectSummaryItemCount(Number(count));
   }
 );
 

@@ -60,6 +60,15 @@ Feature: Checkout
     When I fill in checkout information "John" "Doe" "12345"
     Then the order summary should contain 1 item
 
+  Scenario: Checkout step 2 calculates totals for multiple items
+    Given I have "sauce-labs-bike-light" in my cart
+    And I am on checkout step 1
+    When I fill in checkout information "John" "Doe" "12345"
+    Then the order summary should contain 2 items
+    And the subtotal should contain "$39.98"
+    And the tax should contain "$3.20"
+    And the total should contain "$43.18"
+
   Scenario: Cancel on step 2 returns to inventory
     When I fill in checkout information "John" "Doe" "12345"
     And I cancel checkout on step 2

@@ -16,6 +16,12 @@ Feature: Inventory / Products page
     And the cart icon should be visible
     And the burger menu button should be visible
 
+  Scenario: Inventory page displays footer social links
+    Then the footer should be visible
+    And the footer should display the Twitter link
+    And the footer should display the Facebook link
+    And the footer should display the LinkedIn link
+
   Scenario: Inventory page shows exactly 6 products
     Then the inventory should contain 6 products
 

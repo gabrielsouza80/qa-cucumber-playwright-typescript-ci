@@ -157,6 +157,22 @@ Then(
   }
 );
 
+Then('the footer should be visible', async function (this: CustomWorld) {
+  await getInventoryPage(this).expectFooterVisible();
+});
+
+Then('the footer should display the Twitter link', async function (this: CustomWorld) {
+  await getInventoryPage(this).expectTwitterLinkVisible();
+});
+
+Then('the footer should display the Facebook link', async function (this: CustomWorld) {
+  await getInventoryPage(this).expectFacebookLinkVisible();
+});
+
+Then('the footer should display the LinkedIn link', async function (this: CustomWorld) {
+  await getInventoryPage(this).expectLinkedInLinkVisible();
+});
+
 Then(
   'I should be on the product detail page for item {int}',
   async function (this: CustomWorld, itemId: number) {

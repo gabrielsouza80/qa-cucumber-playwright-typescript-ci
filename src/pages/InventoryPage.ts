@@ -15,6 +15,10 @@ export class InventoryPage {
   readonly menuAbout: Locator;
   readonly menuLogout: Locator;
   readonly menuReset: Locator;
+  readonly footer: Locator;
+  readonly twitterLink: Locator;
+  readonly facebookLink: Locator;
+  readonly linkedInLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -29,6 +33,10 @@ export class InventoryPage {
     this.menuAbout = page.locator('[data-test="about-sidebar-link"]');
     this.menuLogout = page.locator('[data-test="logout-sidebar-link"]');
     this.menuReset = page.locator('[data-test="reset-sidebar-link"]');
+    this.footer = page.locator('[data-test="footer"]');
+    this.twitterLink = page.locator('[data-test="social-twitter"]');
+    this.facebookLink = page.locator('[data-test="social-facebook"]');
+    this.linkedInLink = page.locator('[data-test="social-linkedin"]');
   }
 
   // ─── Navigation ────────────────────────────────────────────────────────────
@@ -128,5 +136,24 @@ export class InventoryPage {
 
   async expectSortDropdownVisible(): Promise<void> {
     await expect(this.sortDropdown).toBeVisible();
+  }
+
+  async expectFooterVisible(): Promise<void> {
+    await expect(this.footer).toBeVisible();
+  }
+
+  async expectTwitterLinkVisible(): Promise<void> {
+    await expect(this.twitterLink).toBeVisible();
+    await expect(this.twitterLink).toHaveAttribute('href', 'https://twitter.com/saucelabs');
+  }
+
+  async expectFacebookLinkVisible(): Promise<void> {
+    await expect(this.facebookLink).toBeVisible();
+    await expect(this.facebookLink).toHaveAttribute('href', 'https://www.facebook.com/saucelabs');
+  }
+
+  async expectLinkedInLinkVisible(): Promise<void> {
+    await expect(this.linkedInLink).toBeVisible();
+    await expect(this.linkedInLink).toHaveAttribute('href', 'https://www.linkedin.com/company/sauce-labs/');
   }
 }
