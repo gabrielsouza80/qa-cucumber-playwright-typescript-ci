@@ -1,0 +1,21 @@
+{
+  "name": "qa-cucumber-playwright-typescript-ci",
+  "version": "1.0.0",
+  "description": "BDD test automation project using Cucumber, Playwright, TypeScript, GitHub Actions and Jenkinsfile.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:report": "cucumber-js --profile report"
+  },
+  "keywords": [],
+  "author": "Gabriel Souza",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.9.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.8.0",
+    "playwright": "^1.60.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
